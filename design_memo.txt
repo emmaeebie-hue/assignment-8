@@ -1,0 +1,21 @@
+Design Memo: Contact Management System
+
+Since this assignment wanted to find a contact more easily without scrolling through every name
+in a list, I chose to use a hash function. The hash function uses the contact's name to figure 
+out which index to store it at. This helps make searching faster, especially when there are a 
+lot of contacts in the table.
+
+For my hash function, I used ord() to get the numerical value of each character in a name, added
+them together, and divided by the table size to get the index. I had to account for different 
+names that could end up at the same index. I used separate chaining to solve this by connecting
+contacts at the same index with nodes. Each node holds the contact's name and information, 
+along with a pointer to the next node. When I tested Amy and May, both ended up at index 5, 
+but the table was still able to store both of them. I also tested adding Rebecca a second time 
+with a new phone number, and it updated her existing information instead of adding another 
+Rebecca.
+
+A hash table is useful when you need to look something up by a specific piece of information, 
+like a person's name. With a regular list, you may have to go through several contacts before 
+finding the one you want. A tree could be more useful if the information needed to be sorted. 
+Since this assignment focused on finding contacts by name, I thought a hash table was the best 
+choice for what the program needed to do.
